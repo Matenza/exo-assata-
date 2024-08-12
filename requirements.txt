@@ -34,7 +34,7 @@ nltk==3.8.1
 numba==0.60.0
 numpy==1.26.4
 opencv-python==4.10.0.84
-opencv-python-headless
+opencv-python-headless==4.10.0.84
 packaging==24.1
 pandas==2.2.2
 patsy==0.5.6
