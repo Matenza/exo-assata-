@@ -33,7 +33,7 @@ networkx==3.3
 nltk==3.8.1
 numba==0.60.0
 numpy==1.26.4
-opencv-python
+opencv-python==2.4.9
 packaging==24.1
 pandas==2.2.2
 patsy==0.5.6
