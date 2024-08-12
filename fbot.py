@@ -29,7 +29,7 @@ def detect_faces():
        
 
         # Convertir les frames en niveaux de gris
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         # Détecter les visages en utilisant le classificateur Haar Cascade
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
