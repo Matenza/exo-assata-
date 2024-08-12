@@ -17,19 +17,22 @@ def detect_faces():
     # Charger le classificateur Haar cascade
     face_cascade = load_cascade_classifier()
    
-    
-    # Initialiser la webcam
     cap = cv2.VideoCapture(0)
+    while(cap.isOpened()):  # check !
+    # capture frame-by-frame
+        ret, frame = cap.read()
+
+        if ret: # check ! (some webcam's need a "warmup")
+            # our operation on frame come here
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+            # Display the resulting frame
+            cv2.imshow('frame', gray)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
 
-
-        # Lire les frames de la webcam
-    ret, frame = cap.read()
-    #st.error("La capture de la caméra a échoué")
-       
-
-        # Convertir les frames en niveaux de gris
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         # Détecter les visages en utilisant le classificateur Haar Cascade
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
@@ -50,6 +53,7 @@ def detect_faces():
 
     # Libérer la webcam
       cap.release()
+      cv2.destroyAllWindows()
 
 def app():
     st.title("Détection de visages avec l'algorithme de Viola-Jones")
