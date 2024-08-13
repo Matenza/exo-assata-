@@ -24,7 +24,7 @@ def detect_faces():
     while True:
         _, frame = cap.read()
         face_frame = frame.copy()
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(face_frame, cv2.COLOR_BGR2GRAY)
 
         faces = detector(gray)
         #detected face in faces array
