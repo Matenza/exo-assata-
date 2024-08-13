@@ -25,10 +25,9 @@ def detect_faces():
         ret, frame = cap.read()
         frame = cap.read()
 
-
         if ret: # check ! (some webcam's need a "warmup")
             # our operation on frame come here
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)        
 
             # Display the resulting frame
             cv2.imshow('frame', gray)
@@ -36,14 +35,13 @@ def detect_faces():
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-
-
         # Détecter les visages en utilisant le classificateur Haar Cascade
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+    face_frame = frame.copy()
 
         # Dessiner des rectangles autour des visages détectés
     for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0),2)
+        cv2.rectangle(face_frame, (x, y), (x + w, y + h), (0, 255, 0),2)
 
         # Convertir l'image en RGB pour l'affichage dans Streamlit
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
