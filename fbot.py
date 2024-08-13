@@ -2,7 +2,7 @@ import cv2
 import streamlit as st
 import os
 
-gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 ret, frame = cap.read()
 
 def load_cascade_classifier():
