@@ -22,33 +22,33 @@ def detect_faces():
    
     cap = cv2.VideoCapture(0)
     while True:
-    _, frame = cap.read()
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        _, frame = cap.read()
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    faces = detector(gray)
-    #detected face in faces array
-    for face in faces:
-        x1 = face.left()
-        y1 = face.top()
-        x2 = face.right()
-        y2 = face.bottom()
+        faces = detector(gray)
+        #detected face in faces array
+        for face in faces:
+            x1 = face.left()
+            y1 = face.top()
+            x2 = face.right()
+            y2 = face.bottom()
 
-        face_frame = frame.copy()
-        cv2.rectangle(face_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            face_frame = frame.copy()
+            cv2.rectangle(face_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-        # Convertir l'image en RGB pour l'affichage dans Streamlit
-    frame_rgb = cv2.cvtColor(face_frame, cv2.COLOR_BGR2RGB)
+            # Convertir l'image en RGB pour l'affichage dans Streamlit
+            frame_rgb = cv2.cvtColor(face_frame, cv2.COLOR_BGR2RGB)
 
-        # Afficher l'image dans l'application Streamlit
-    st.image(frame_rgb, caption="Détection de visages", use_column_width=True)
+            # Afficher l'image dans l'application Streamlit
+            st.image(frame_rgb, caption="Détection de visages", use_column_width=True)
 
-        # Sortir de la boucle si l'application est fermée
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+            # Sortir de la boucle si l'application est fermée
+            if cv2.waitKey(1) & 0xFF == ord('q'):
             
 
-    # Libérer la webcam
-      cap.release()
-      cv2.destroyAllWindows()
+            # Libérer la webcam
+              cap.release()
+              cv2.destroyAllWindows()
 
 def app():
     st.title("Détection de visages avec l'algorithme de Viola-Jones")
