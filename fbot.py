@@ -2,6 +2,8 @@ import cv2
 import streamlit as st
 import os
 
+gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
 def load_cascade_classifier():
     # Essayez de charger le classificateur en utilisant le chemin par défaut d'OpenCV
     cascade_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
