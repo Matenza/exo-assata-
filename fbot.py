@@ -23,6 +23,8 @@ def detect_faces():
     while(cap.isOpened()):  # check !
     # capture frame-by-frame
         ret, frame = cap.read()
+        frame = cap.read()
+
 
         if ret: # check ! (some webcam's need a "warmup")
             # our operation on frame come here
