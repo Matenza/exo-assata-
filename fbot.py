@@ -4,8 +4,8 @@ import os
 
 #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 #ret, frame = cap.read()
-_, frame = cap.read()
-gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#_, frame = cap.read()
+#gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 def load_cascade_classifier():
     # Essayez de charger le classificateur en utilisant le chemin par défaut d'OpenCV
@@ -17,7 +17,9 @@ def load_cascade_classifier():
         st.error("Erreur : Impossible de charger le classificateur Haar cascade.")
         return None
     return face_cascade
-
+    
+_, frame = cap.read()
+gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 def detect_faces():
     #_, frame = cap.read()
     #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
