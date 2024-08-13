@@ -37,7 +37,7 @@ def detect_faces():
         cv2.rectangle(face_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
         # Convertir l'image en RGB pour l'affichage dans Streamlit
-    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame_rgb = cv2.cvtColor(face_frame, cv2.COLOR_BGR2RGB)
 
         # Afficher l'image dans l'application Streamlit
     st.image(frame_rgb, caption="Détection de visages", use_column_width=True)
