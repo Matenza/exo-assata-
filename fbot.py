@@ -17,13 +17,13 @@ def load_cascade_classifier():
     return face_cascade
 
 def detect_faces():
+    _, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # Charger le classificateur Haar cascade
     face_cascade = load_cascade_classifier()
    
     cap = cv2.VideoCapture(0)
     while True:
-        _, frame = cap.read()
         #face_frame = frame.copy()
         #gray = cv2.cvtColor(face_frame, cv2.COLOR_BGR2GRAY)
         faces = detector(gray)
