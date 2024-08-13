@@ -22,7 +22,6 @@ def detect_faces():
     face_cascade = load_cascade_classifier()
    
     cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
     while True:
         _, frame = cap.read()
         #face_frame = frame.copy()
